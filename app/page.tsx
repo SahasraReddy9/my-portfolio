@@ -21,10 +21,10 @@ function AINetworkBackground() {
       x: Math.random() * width,
       y: Math.random() * height,
       vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5
+      vy: (Math.random() - 0.5) * 0.5,
     }));
 
-    function animate() {
+    const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
       nodes.forEach((n) => {
@@ -41,7 +41,7 @@ function AINetworkBackground() {
       });
 
       requestAnimationFrame(animate);
-    }
+    };
 
     animate();
 
@@ -51,6 +51,7 @@ function AINetworkBackground() {
     };
 
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -70,130 +71,54 @@ export default function Page() {
     {
       title: "HR Attrition Analysis & Workforce Insights",
       role: "Data Analytics Intern (HR Domain)",
-
       summary:
-        "Conducted end-to-end workforce analytics to identify key drivers of employee attrition and recruitment inefficiencies. Built KPI models and dashboards to support HR decision-making.",
-
-      tools: [
-        "SQL (Joins, Aggregations)",
-        "Python (Pandas, NumPy)",
-        "Power BI / Tableau",
-        "Excel",
-        "KPI Modeling"
-      ],
-
-      problem: [
-        "No visibility into attrition drivers",
-        "Fragmented HR datasets",
-        "Manual reporting delays"
-      ],
-
-      approach: [
-        "Extracted HR data using SQL",
-        "Cleaned and analyzed using Python",
-        "Performed trend analysis",
-        "Built dashboards for HR KPIs",
-        "Validated data quality"
-      ],
-
-      insights: [
-        "Early-tenure employees had highest attrition",
-        "Department-level differences identified",
-        "Recruitment bottlenecks detected"
-      ],
-
-      impact: [
-        "Improved HR decision-making",
-        "Better workforce visibility",
-        "Reduced reporting effort"
-      ]
+        "Analyzed HR datasets to identify attrition patterns, workforce behavior, and hiring trends using SQL, Python (Pandas), and BI tools.",
+      tools: "SQL, Python, Pandas, Power BI, Tableau, Excel",
+      problem:
+        "Organizations lacked visibility into why employees leave and how workforce patterns change over time.",
+      approach:
+        "Cleaned HR datasets, built KPI models using SQL, performed EDA in Python, and created dashboards in Power BI/Tableau.",
+      insights:
+        "Attrition is higher in early tenure employees and specific departments show consistent turnover patterns.",
+      impact:
+        "Helped HR teams improve retention strategies and reduce manual reporting effort.",
     },
 
     {
-      title: "Business KPI & Workforce Dashboard",
+      title: "Business KPI & Workforce Dashboard Reporting",
       role: "Business Intelligence Analyst Intern",
-
       summary:
-        "Built KPI dashboards by converting business requirements into structured data models for leadership reporting and workforce tracking.",
-
-      tools: [
-        "SQL",
-        "Power BI",
-        "Excel",
-        "Data Modeling",
-        "Git"
-      ],
-
-      problem: [
-        "No centralized KPI system",
-        "Manual Excel reporting",
-        "Inconsistent data sources"
-      ],
-
-      approach: [
-        "Designed KPI frameworks",
-        "Extracted data using SQL",
-        "Built dashboards in Power BI",
-        "Applied validation checks"
-      ],
-
-      insights: [
-        "Improved KPI visibility",
-        "Standardized reporting",
-        "Better tracking of performance metrics"
-      ],
-
-      impact: [
-        "Faster reporting cycles",
-        "Better decision support",
-        "Improved data consistency"
-      ]
+        "Built KPI dashboards for workforce planning, hiring trends, and business performance tracking.",
+      tools: "SQL, Excel, Power BI, Tableau",
+      problem:
+        "Business data was fragmented across multiple systems with no centralized KPI tracking.",
+      approach:
+        "Created KPI frameworks, extracted data using SQL, cleaned datasets in Excel, and built dashboards.",
+      insights:
+        "Clear visibility of workforce metrics improved decision-making speed.",
+      impact:
+        "Reduced reporting time and improved leadership decision-making.",
     },
 
     {
-      title: "HR Process Automation System",
-      role: "Data Analyst Intern",
-
+      title: "HR Process Automation & Reporting System",
+      role: "Data Analyst / Automation Intern",
       summary:
-        "Automated HR reporting workflows using Python and Excel, reducing manual effort and improving accuracy through structured pipelines.",
-
-      tools: [
-        "Python (Pandas)",
-        "Excel Automation",
-        "Data Validation",
-        "Workflow Automation"
-      ],
-
-      problem: [
-        "Manual reporting was slow",
-        "Frequent Excel errors",
-        "No standardized workflow"
-      ],
-
-      approach: [
-        "Automated data processing using Python",
-        "Created Excel templates",
-        "Added validation checks",
-        "Standardized reporting system"
-      ],
-
-      insights: [
-        "Manual work was inefficient",
-        "Automation reduced errors",
-        "Standardization improved consistency"
-      ],
-
-      impact: [
-        "Saved time in reporting",
-        "Improved accuracy",
-        "Streamlined operations"
-      ]
-    }
+        "Automated HR reporting workflows using Python and Excel to improve speed and accuracy.",
+      tools: "Python, Pandas, Excel Automation",
+      problem:
+        "Manual reporting was slow, repetitive, and prone to errors.",
+      approach:
+        "Built Python scripts for automation, cleaned datasets using Pandas, and standardized reporting workflows.",
+      insights:
+        "Automation significantly reduces human error and improves consistency.",
+      impact:
+        "Reduced reporting time and improved accuracy of HR reports.",
+    },
   ];
 
   return (
     <main className="bg-white text-black relative">
-
       <AINetworkBackground />
 
       {/* HERO */}
@@ -206,7 +131,6 @@ export default function Page() {
 
       {/* ABOUT */}
       <section className="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
-
         <img
           src="/profile.jpg"
           alt="profile"
@@ -216,9 +140,9 @@ export default function Page() {
         <div>
           <h2 className="text-3xl font-semibold">About Me</h2>
 
-          <p className="mt-4 text-gray-600 leading-relaxed">
-            I am a data-driven thinker focused on turning raw data into meaningful business insights.
-            I specialize in HR analytics, dashboards, and automation.
+          <p className="mt-4 text-gray-600">
+            Data analyst focused on HR, business intelligence, and automation
+            workflows. I transform raw data into actionable insights.
           </p>
 
           <div className="mt-6 text-gray-700">
@@ -230,7 +154,7 @@ export default function Page() {
                 target="_blank"
                 className="underline"
               >
-                LinkedIn Profile
+                LinkedIn
               </a>
             </p>
           </div>
@@ -239,10 +163,9 @@ export default function Page() {
 
       {/* CASE STUDIES */}
       <section className="py-20">
-
-        <h2 className="text-4xl text-center font-semibold mb-10">
-          Case Studies
-        </h2>
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-semibold">Case Studies</h2>
+        </div>
 
         <div className="flex justify-center gap-4 mb-10">
           <button
@@ -251,7 +174,6 @@ export default function Page() {
           >
             Prev
           </button>
-
           <button
             onClick={() =>
               setIndex((i) => Math.min(i + 1, caseStudies.length - 1))
@@ -262,77 +184,45 @@ export default function Page() {
           </button>
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 relative">
-
+        <div className="max-w-5xl mx-auto px-6 relative h-[500px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4 }}
+              className="absolute w-full"
             >
-
               <h3 className="text-2xl font-semibold">
                 {caseStudies[index].title}
               </h3>
 
-              <p className="text-gray-500">
-                {caseStudies[index].role}
-              </p>
+              <p className="text-gray-500">{caseStudies[index].role}</p>
 
               <p className="mt-4 text-gray-700">
                 {caseStudies[index].summary}
               </p>
 
-              <h4 className="font-semibold mt-6">Tools Used</h4>
-              <ul className="list-disc ml-5 text-gray-600">
-                {caseStudies[index].tools.map((x, i) => (
-                  <li key={i}>{x}</li>
-                ))}
-              </ul>
-
-              <div className="grid md:grid-cols-2 gap-8 mt-8">
-
-                <div>
-                  <h4 className="font-semibold">Problem</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].problem.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-
-                  <h4 className="font-semibold mt-4">Approach</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].approach.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold">Insights</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].insights.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-
-                  <h4 className="font-semibold mt-4">Impact</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].impact.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-                </div>
-
+              <div className="mt-6 text-sm text-gray-600">
+                <p><b>Tools:</b> {caseStudies[index].tools}</p>
+                <p><b>Problem:</b> {caseStudies[index].problem}</p>
+                <p><b>Approach:</b> {caseStudies[index].approach}</p>
+                <p><b>Insights:</b> {caseStudies[index].insights}</p>
+                <p><b>Impact:</b> {caseStudies[index].impact}</p>
               </div>
-
             </motion.div>
           </AnimatePresence>
-
         </div>
       </section>
 
+      {/* CONTACT */}
+      <section className="text-center py-20 border-t">
+        <h2 className="text-2xl font-semibold">Get In Touch</h2>
+        <p className="text-gray-600 mt-3">
+          csahasrareddie09@gmail.com
+        </p>
+      </section>
     </main>
   );
 }
