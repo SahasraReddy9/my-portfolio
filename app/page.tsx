@@ -219,6 +219,10 @@ export default function Page() {
           <p className="mt-4 text-gray-600 leading-relaxed">
             I am a data-driven thinker focused on turning raw data into meaningful business insights.
             I specialize in HR analytics, dashboards, and automation.
+            My work blends SQL, Python, and visualization tools to uncover patterns that drive smarter decisions.
+            I enjoy designing clean, intuitive reports that make complex metrics easy to understand.
+            Collaboration and curiosity are at the core of how I approach every problem.
+            Outside of analytics, I explore new frameworks, read about behavioral science, and mentor aspiring data enthusiasts.
           </p>
 
           <div className="mt-6 text-gray-700">
