@@ -44,9 +44,22 @@ function AINetworkBackground() {
     }
 
     animate();
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 -z-10" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 -z-10 pointer-events-none"
+    />
+  );
 }
 
 /* ---------------- PAGE ---------------- */
@@ -59,14 +72,14 @@ export default function Page() {
       role: "Data Analytics Intern (HR Domain)",
 
       summary:
-        "Conducted end-to-end workforce analytics to identify key drivers of employee attrition and recruitment inefficiencies. Integrated HR datasets, built KPI models, and delivered dashboards to support data-driven retention strategies.",
+        "Conducted end-to-end workforce analytics to identify key drivers of employee attrition and recruitment inefficiencies. Built KPI models and dashboards to support HR decision-making.",
 
       tools: [
         "SQL (Joins, Aggregations)",
         "Python (Pandas, NumPy)",
-        "Power BI, Tableau",
+        "Power BI / Tableau",
         "Excel",
-        "Data Modeling"
+        "KPI Modeling"
       ],
 
       problem: [
@@ -76,23 +89,23 @@ export default function Page() {
       ],
 
       approach: [
-        "Joined datasets using SQL",
-        "Cleaned data using Python",
-        "Performed trend & pattern analysis",
-        "Built dashboards for KPIs",
-        "Applied data validation checks"
+        "Extracted HR data using SQL",
+        "Cleaned and analyzed using Python",
+        "Performed trend analysis",
+        "Built dashboards for HR KPIs",
+        "Validated data quality"
       ],
 
       insights: [
-        "High attrition in early tenure employees",
-        "Department-level patterns identified",
-        "Recruitment bottlenecks found"
+        "Early-tenure employees had highest attrition",
+        "Department-level differences identified",
+        "Recruitment bottlenecks detected"
       ],
 
       impact: [
-        "Enabled proactive HR decisions",
-        "Improved workforce visibility",
-        "Faster decision-making"
+        "Improved HR decision-making",
+        "Better workforce visibility",
+        "Reduced reporting effort"
       ]
     },
 
@@ -101,39 +114,39 @@ export default function Page() {
       role: "Business Intelligence Analyst Intern",
 
       summary:
-        "Built KPI dashboards by converting business requirements into structured data models. Centralized workforce and operational reporting to improve leadership visibility and decision-making.",
+        "Built KPI dashboards by converting business requirements into structured data models for leadership reporting and workforce tracking.",
 
       tools: [
         "SQL",
         "Power BI",
         "Excel",
-        "KPI Modeling",
+        "Data Modeling",
         "Git"
       ],
 
       problem: [
-        "No centralized KPI tracking",
-        "Manual Excel reports",
-        "Inconsistent data"
+        "No centralized KPI system",
+        "Manual Excel reporting",
+        "Inconsistent data sources"
       ],
 
       approach: [
-        "Built KPI models",
+        "Designed KPI frameworks",
         "Extracted data using SQL",
-        "Created dashboards in Power BI",
-        "Validated data quality"
+        "Built dashboards in Power BI",
+        "Applied validation checks"
       ],
 
       insights: [
-        "Clear workforce KPI visibility",
-        "Improved reporting consistency",
-        "Better performance tracking"
+        "Improved KPI visibility",
+        "Standardized reporting",
+        "Better tracking of performance metrics"
       ],
 
       impact: [
-        "Reduced reporting time",
-        "Enabled real-time insights",
-        "Improved business decisions"
+        "Faster reporting cycles",
+        "Better decision support",
+        "Improved data consistency"
       ]
     },
 
@@ -142,7 +155,7 @@ export default function Page() {
       role: "Data Analyst Intern",
 
       summary:
-        "Automated HR reporting workflows using Python and Excel to reduce manual effort, improve data accuracy, and standardize reporting processes.",
+        "Automated HR reporting workflows using Python and Excel, reducing manual effort and improving accuracy through structured pipelines.",
 
       tools: [
         "Python (Pandas)",
@@ -153,25 +166,25 @@ export default function Page() {
 
       problem: [
         "Manual reporting was slow",
-        "Excel errors frequent",
-        "No standard workflow"
+        "Frequent Excel errors",
+        "No standardized workflow"
       ],
 
       approach: [
-        "Automated processing using Python",
-        "Built Excel templates",
+        "Automated data processing using Python",
+        "Created Excel templates",
         "Added validation checks",
-        "Standardized workflows"
+        "Standardized reporting system"
       ],
 
       insights: [
-        "Manual work was bottleneck",
+        "Manual work was inefficient",
         "Automation reduced errors",
         "Standardization improved consistency"
       ],
 
       impact: [
-        "Saved reporting time",
+        "Saved time in reporting",
         "Improved accuracy",
         "Streamlined operations"
       ]
@@ -185,10 +198,7 @@ export default function Page() {
 
       {/* HERO */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">
-        <h1 className="text-5xl font-semibold">
-          Hi, I’m Sahasra Reddy 👋
-        </h1>
-
+        <h1 className="text-5xl font-semibold">Hi, I’m Sahasra Reddy 👋</h1>
         <p className="mt-4 text-gray-600">
           Data Analyst | BI Analyst | Business Analyst
         </p>
@@ -199,7 +209,7 @@ export default function Page() {
 
         <img
           src="/profile.jpg"
-          alt="Profile"
+          alt="profile"
           className="w-72 h-72 object-cover rounded-3xl shadow-xl"
         />
 
@@ -207,11 +217,8 @@ export default function Page() {
           <h2 className="text-3xl font-semibold">About Me</h2>
 
           <p className="mt-4 text-gray-600 leading-relaxed">
-            I am a data-driven thinker who enjoys solving business problems through analytics.<br /><br />
-            I transform raw data into meaningful insights.<br /><br />
-            I work with HR and business intelligence datasets.<br /><br />
-            I focus on continuous learning and practical solutions.<br /><br />
-            My goal is evidence-based decision making.
+            I am a data-driven thinker focused on turning raw data into meaningful business insights.
+            I specialize in HR analytics, dashboards, and automation.
           </p>
 
           <div className="mt-6 text-gray-700">
@@ -277,7 +284,6 @@ export default function Page() {
                 {caseStudies[index].summary}
               </p>
 
-              {/* TOOLS */}
               <h4 className="font-semibold mt-6">Tools Used</h4>
               <ul className="list-disc ml-5 text-gray-600">
                 {caseStudies[index].tools.map((x, i) => (
