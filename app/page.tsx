@@ -5,11 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 /* ---------------- AI BACKGROUND ---------------- */
 function AINetworkBackground() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return; // ✅ FIX 1
+
     const ctx = canvas.getContext("2d");
+    if (!ctx) return; // ✅ FIX 2
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
@@ -41,14 +44,27 @@ function AINetworkBackground() {
     }
 
     animate();
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 -z-10" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 -z-10 pointer-events-none"
+    />
+  );
 }
 
 /* ---------------- PAGE ---------------- */
 export default function Page() {
-
   const [index, setIndex] = useState(0);
 
   const caseStudies = [
@@ -79,7 +95,6 @@ export default function Page() {
         "Reduced manual analysis effort"
       ]
     },
-
     {
       title: "Business KPI & Workforce Dashboard Reporting",
       role: "Business Intelligence Analyst Intern",
@@ -101,13 +116,8 @@ export default function Page() {
         "Improved reporting structure",
         "Clear hiring trend analysis"
       ],
-      impact: [
-        "Faster reporting cycles",
-        "Improved decision support",
-        "Structured KPI tracking"
-      ]
+      impact: ["Faster reporting cycles", "Improved decision support", "Structured KPI tracking"]
     },
-
     {
       title: "HR Process Automation & Reporting System",
       role: "Data Analyst / Automation Intern",
@@ -129,11 +139,7 @@ export default function Page() {
         "Need for automation confirmed",
         "Data consistency improved"
       ],
-      impact: [
-        "Reduced reporting time",
-        "Improved accuracy",
-        "Streamlined workflow"
-      ]
+      impact: ["Reduced reporting time", "Improved accuracy", "Streamlined workflow"]
     }
   ];
 
@@ -147,7 +153,6 @@ export default function Page() {
         <h1 className="text-5xl font-semibold">
           Hi, I’m Sahasra Reddy 👋
         </h1>
-
         <p className="mt-4 text-gray-600">
           Data Analyst | BI Analyst | Business Analyst
         </p>
@@ -156,35 +161,37 @@ export default function Page() {
       {/* ABOUT */}
       <section className="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
 
-        <div>
-          <img
-            src="/profile.jpg"
-            alt="Profile"
-            className="w-72 h-72 object-cover rounded-3xl shadow-xl"
-          />
-        </div>
+        <img
+          src="/profile.jpg"
+          alt="Profile"
+          className="w-72 h-72 object-cover rounded-3xl shadow-xl"
+        />
 
         <div>
           <h2 className="text-3xl font-semibold">About Me</h2>
 
           <p className="mt-4 text-gray-600 leading-relaxed">
-            I am a data-driven thinker who enjoys solving business problems through analytics.<br /><br />
-            I transform raw data into meaningful insights.<br /><br />
-            I work with HR and business intelligence datasets.<br /><br />
-            I focus on continuous learning and practical solutions.<br /><br />
+            I am a data-driven thinker who enjoys solving business problems through analytics.
+            <br /><br />
+            I transform raw data into meaningful insights.
+            <br /><br />
+            I work with HR and business intelligence datasets.
+            <br /><br />
+            I focus on continuous learning and practical solutions.
+            <br /><br />
             My goal is evidence-based decision making.
           </p>
 
           <div className="mt-6 text-gray-700">
             <p>📧 Gmail: csahasrareddie09@gmail.com</p>
             <p>
-              🔗 LinkedIn:{" "}
+              🔗{" "}
               <a
                 href="https://www.linkedin.com/in/sahasra-reddy-075002235"
                 target="_blank"
                 className="underline"
               >
-                sahasra-reddy-075002235
+                LinkedIn Profile
               </a>
             </p>
           </div>
@@ -207,16 +214,14 @@ export default function Page() {
 
         <div className="flex justify-center gap-4 mb-10">
           <button
-            onClick={() => setIndex((prev) => Math.max(prev - 1, 0))}
+            onClick={() => setIndex((p) => Math.max(p - 1, 0))}
             className="px-4 py-2 border rounded-full"
           >
             ← Prev
           </button>
 
           <button
-            onClick={() =>
-              setIndex((prev) => Math.min(prev + 1, caseStudies.length - 1))
-            }
+            onClick={() => setIndex((p) => Math.min(p + 1, caseStudies.length - 1))}
             className="px-4 py-2 border rounded-full"
           >
             Next →
@@ -226,7 +231,6 @@ export default function Page() {
         <div className="max-w-5xl mx-auto px-6 relative h-[500px]">
 
           <AnimatePresence mode="wait">
-
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 60 }}
@@ -235,7 +239,6 @@ export default function Page() {
               transition={{ duration: 0.4 }}
               className="absolute w-full"
             >
-
               <h3 className="text-2xl font-semibold">
                 {caseStudies[index].title}
               </h3>
@@ -247,45 +250,7 @@ export default function Page() {
               <p className="mt-4 text-gray-700">
                 {caseStudies[index].summary}
               </p>
-
-              <div className="grid md:grid-cols-2 gap-8 mt-8">
-
-                <div>
-                  <h4 className="font-semibold">Problem</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].problem.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-
-                  <h4 className="font-semibold mt-4">Approach</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].approach.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold">Insights</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].insights.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-
-                  <h4 className="font-semibold mt-4">Impact</h4>
-                  <ul className="list-disc ml-5 text-gray-600">
-                    {caseStudies[index].impact.map((x, i) => (
-                      <li key={i}>{x}</li>
-                    ))}
-                  </ul>
-                </div>
-
-              </div>
-
             </motion.div>
-
           </AnimatePresence>
 
         </div>
