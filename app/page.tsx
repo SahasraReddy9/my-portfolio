@@ -55,7 +55,10 @@ function AINetworkBackground() {
   }, []);
 
   return (
-    <canvas className="fixed inset-0 -z-10 pointer-events-none" ref={canvasRef} />
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 -z-10 pointer-events-none"
+    />
   );
 }
 
@@ -67,41 +70,105 @@ export default function Page() {
     {
       title: "HR Attrition Analysis & Workforce Insights",
       role: "Data Analytics Intern (HR Domain)",
-      tools: "SQL, Python (Pandas), Power BI, Tableau, Excel",
-      problem:
-        "HR teams lacked visibility into why employees were leaving and what patterns were driving attrition across departments and tenure groups.",
-      approach:
-        "Extracted HR data using SQL, cleaned and analyzed it using Python Pandas, performed EDA, and built dashboards in Power BI/Tableau for visualization.",
-      insights:
-        "Attrition is significantly higher among early-tenure employees and certain departments show consistent turnover patterns influenced by workload and role type.",
-      impact:
-        "Helped HR teams identify key retention risks, improve hiring strategy, and reduce dependency on manual reporting processes.",
+      tools:
+        "SQL (Joins, Aggregations), Python (Pandas, NumPy), Power BI / Tableau, Excel, KPI Modeling",
+
+      summary:
+        "Conducted end-to-end workforce analytics to identify key drivers of employee attrition and recruitment inefficiencies. Built KPI models and dashboards to support HR decision-making.",
+
+      problem: [
+        "No visibility into attrition drivers",
+        "Fragmented HR datasets",
+        "Manual reporting delays",
+      ],
+
+      approach: [
+        "Extracted HR data using SQL",
+        "Cleaned and analyzed using Python (Pandas, NumPy)",
+        "Performed trend and pattern analysis",
+        "Built KPI dashboards in Power BI/Tableau",
+        "Validated data quality for consistency",
+      ],
+
+      insights: [
+        "Early-tenure employees showed highest attrition",
+        "Department-level differences in retention",
+        "Recruitment bottlenecks in hiring pipeline",
+      ],
+
+      impact: [
+        "Improved HR decision-making",
+        "Better workforce visibility",
+        "Reduced manual reporting effort",
+      ],
     },
+
     {
       title: "Business KPI & Workforce Dashboard Reporting",
       role: "Business Intelligence Analyst Intern",
       tools: "SQL, Excel, Power BI, Tableau",
-      problem:
-        "Business and HR data were scattered across multiple systems with no unified KPI tracking system for leadership decision-making.",
-      approach:
-        "Designed KPI frameworks, extracted structured datasets using SQL, cleaned data in Excel, and built interactive dashboards in Power BI/Tableau.",
-      insights:
-        "Real-time KPI visibility improved understanding of hiring trends, workforce distribution, and operational efficiency gaps.",
-      impact:
-        "Reduced reporting time significantly and improved leadership decision-making through centralized dashboards.",
+
+      summary:
+        "Designed KPI-driven dashboards for workforce planning, hiring trends, and leadership reporting.",
+
+      problem: [
+        "No centralized KPI tracking system",
+        "Data scattered across multiple sources",
+        "Slow manual reporting cycles",
+      ],
+
+      approach: [
+        "Built KPI frameworks for reporting",
+        "Extracted data using SQL queries",
+        "Cleaned datasets in Excel",
+        "Created dashboards in Power BI/Tableau",
+      ],
+
+      insights: [
+        "Real-time KPI visibility improved decision-making",
+        "Workforce trends became easier to track",
+        "Data inconsistencies identified and resolved",
+      ],
+
+      impact: [
+        "Faster reporting cycles",
+        "Improved leadership visibility",
+        "Better workforce planning",
+      ],
     },
+
     {
       title: "HR Process Automation & Reporting System",
       role: "Data Analyst / Automation Intern",
       tools: "Python, Pandas, Excel Automation",
-      problem:
-        "HR reporting was manual, repetitive, slow, and prone to human errors causing inconsistency in business reporting.",
-      approach:
-        "Built Python automation scripts using Pandas, standardized Excel reporting templates, and automated repetitive data processing tasks.",
-      insights:
-        "Automation improves accuracy, reduces human error, and ensures consistency in HR reporting systems.",
-      impact:
-        "Reduced reporting time by a large margin and improved accuracy and reliability of HR reports.",
+
+      summary:
+        "Automated HR reporting workflows to reduce manual effort, improve accuracy, and standardize reporting systems.",
+
+      problem: [
+        "Manual reporting was slow",
+        "Frequent Excel inconsistencies",
+        "High human error rate",
+      ],
+
+      approach: [
+        "Built Python automation scripts",
+        "Used Pandas for data processing",
+        "Standardized Excel reporting formats",
+        "Automated repetitive workflows",
+      ],
+
+      insights: [
+        "Automation improves accuracy and consistency",
+        "Standardization reduces reporting errors",
+        "Manual effort can be significantly reduced",
+      ],
+
+      impact: [
+        "Reduced reporting time",
+        "Improved data accuracy",
+        "Streamlined HR workflow",
+      ],
     },
   ];
 
@@ -111,7 +178,9 @@ export default function Page() {
 
       {/* HERO */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">
-        <h1 className="text-5xl font-semibold">Hi, I’m Sahasra Reddy 👋</h1>
+        <h1 className="text-5xl font-semibold">
+          Hi, I’m Sahasra Reddy 👋
+        </h1>
         <p className="mt-4 text-gray-600">
           Data Analyst | BI Analyst | Business Analyst
         </p>
@@ -129,14 +198,14 @@ export default function Page() {
           <h2 className="text-3xl font-semibold">About Me</h2>
 
           <p className="mt-4 text-gray-600 leading-relaxed">
-            I am a data-driven professional passionate about solving real-world business problems using analytics.<br /><br />
-            I specialize in HR analytics, business intelligence, and reporting automation across multiple domains.<br /><br />
-            I work with SQL, Python, and visualization tools to transform raw data into actionable insights.<br /><br />
-            I enjoy identifying patterns in workforce and business data to improve decision-making processes.<br /><br />
-            I strongly focus on clean data, accurate reporting, and scalable analytical solutions.<br /><br />
-            I believe data storytelling is essential to bridge the gap between technical analysis and business understanding.<br /><br />
-            I continuously learn new tools and techniques to improve analytical efficiency and impact.<br /><br />
-            My goal is to become a data leader who drives business strategy through insights.
+            I am a data-driven professional passionate about solving business problems using analytics.<br /><br />
+            I specialize in HR analytics, business intelligence, and reporting automation across domains.<br /><br />
+            I work with SQL, Python, and BI tools to transform raw data into actionable insights.<br /><br />
+            I enjoy identifying patterns in workforce and business datasets for better decision-making.<br /><br />
+            I focus on clean data, accurate reporting, and scalable analytical solutions.<br /><br />
+            I believe storytelling is key to making data understandable for business users.<br /><br />
+            I continuously improve my skills in analytics, visualization, and automation.<br /><br />
+            My goal is to become a data leader who drives business impact through insights.
           </p>
 
           <div className="mt-6 text-gray-700">
@@ -195,24 +264,25 @@ export default function Page() {
 
               <p className="text-gray-500">{caseStudies[index].role}</p>
 
-              <div className="mt-4 text-gray-700 space-y-3">
+              <div className="mt-4 text-gray-700 space-y-2">
                 <p><b>Tools Used:</b> {caseStudies[index].tools}</p>
-                <p><b>Problem:</b> {caseStudies[index].problem}</p>
-                <p><b>Approach:</b> {caseStudies[index].approach}</p>
-                <p><b>Insights:</b> {caseStudies[index].insights}</p>
-                <p><b>Impact:</b> {caseStudies[index].impact}</p>
+                <p><b>Summary:</b> {caseStudies[index].summary}</p>
+                <p><b>Problem:</b> {caseStudies[index].problem.join(", ")}</p>
+                <p><b>Approach:</b> {caseStudies[index].approach.join(", ")}</p>
+                <p><b>Insights:</b> {caseStudies[index].insights.join(", ")}</p>
+                <p><b>Impact:</b> {caseStudies[index].impact.join(", ")}</p>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
       </section>
 
-      {/* RESUME (AT END) */}
+      {/* RESUME */}
       <section className="text-center py-20 border-t">
         <h2 className="text-2xl font-semibold">Resume</h2>
 
         <p className="text-gray-600 mt-3">
-          Download my resume to explore my full experience and projects.
+          Download my resume to view full experience and projects.
         </p>
 
         <a
