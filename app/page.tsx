@@ -51,15 +51,11 @@ function AINetworkBackground() {
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 -z-10 pointer-events-none"
-    />
+    <canvas className="fixed inset-0 -z-10 pointer-events-none" ref={canvasRef} />
   );
 }
 
@@ -71,49 +67,41 @@ export default function Page() {
     {
       title: "HR Attrition Analysis & Workforce Insights",
       role: "Data Analytics Intern (HR Domain)",
-      summary:
-        "Analyzed HR datasets to identify attrition patterns, workforce behavior, and hiring trends using SQL, Python (Pandas), and BI tools.",
-      tools: "SQL, Python, Pandas, Power BI, Tableau, Excel",
+      tools: "SQL, Python (Pandas), Power BI, Tableau, Excel",
       problem:
-        "Organizations lacked visibility into why employees leave and how workforce patterns change over time.",
+        "HR teams lacked visibility into why employees were leaving and what patterns were driving attrition across departments and tenure groups.",
       approach:
-        "Cleaned HR datasets, built KPI models using SQL, performed EDA in Python, and created dashboards in Power BI/Tableau.",
+        "Extracted HR data using SQL, cleaned and analyzed it using Python Pandas, performed EDA, and built dashboards in Power BI/Tableau for visualization.",
       insights:
-        "Attrition is higher in early tenure employees and specific departments show consistent turnover patterns.",
+        "Attrition is significantly higher among early-tenure employees and certain departments show consistent turnover patterns influenced by workload and role type.",
       impact:
-        "Helped HR teams improve retention strategies and reduce manual reporting effort.",
+        "Helped HR teams identify key retention risks, improve hiring strategy, and reduce dependency on manual reporting processes.",
     },
-
     {
       title: "Business KPI & Workforce Dashboard Reporting",
       role: "Business Intelligence Analyst Intern",
-      summary:
-        "Built KPI dashboards for workforce planning, hiring trends, and business performance tracking.",
       tools: "SQL, Excel, Power BI, Tableau",
       problem:
-        "Business data was fragmented across multiple systems with no centralized KPI tracking.",
+        "Business and HR data were scattered across multiple systems with no unified KPI tracking system for leadership decision-making.",
       approach:
-        "Created KPI frameworks, extracted data using SQL, cleaned datasets in Excel, and built dashboards.",
+        "Designed KPI frameworks, extracted structured datasets using SQL, cleaned data in Excel, and built interactive dashboards in Power BI/Tableau.",
       insights:
-        "Clear visibility of workforce metrics improved decision-making speed.",
+        "Real-time KPI visibility improved understanding of hiring trends, workforce distribution, and operational efficiency gaps.",
       impact:
-        "Reduced reporting time and improved leadership decision-making.",
+        "Reduced reporting time significantly and improved leadership decision-making through centralized dashboards.",
     },
-
     {
       title: "HR Process Automation & Reporting System",
       role: "Data Analyst / Automation Intern",
-      summary:
-        "Automated HR reporting workflows using Python and Excel to improve speed and accuracy.",
       tools: "Python, Pandas, Excel Automation",
       problem:
-        "Manual reporting was slow, repetitive, and prone to errors.",
+        "HR reporting was manual, repetitive, slow, and prone to human errors causing inconsistency in business reporting.",
       approach:
-        "Built Python scripts for automation, cleaned datasets using Pandas, and standardized reporting workflows.",
+        "Built Python automation scripts using Pandas, standardized Excel reporting templates, and automated repetitive data processing tasks.",
       insights:
-        "Automation significantly reduces human error and improves consistency.",
+        "Automation improves accuracy, reduces human error, and ensures consistency in HR reporting systems.",
       impact:
-        "Reduced reporting time and improved accuracy of HR reports.",
+        "Reduced reporting time by a large margin and improved accuracy and reliability of HR reports.",
     },
   ];
 
@@ -140,9 +128,15 @@ export default function Page() {
         <div>
           <h2 className="text-3xl font-semibold">About Me</h2>
 
-          <p className="mt-4 text-gray-600">
-            Data analyst focused on HR, business intelligence, and automation
-            workflows. I transform raw data into actionable insights.
+          <p className="mt-4 text-gray-600 leading-relaxed">
+            I am a data-driven professional passionate about solving real-world business problems using analytics.<br /><br />
+            I specialize in HR analytics, business intelligence, and reporting automation across multiple domains.<br /><br />
+            I work with SQL, Python, and visualization tools to transform raw data into actionable insights.<br /><br />
+            I enjoy identifying patterns in workforce and business data to improve decision-making processes.<br /><br />
+            I strongly focus on clean data, accurate reporting, and scalable analytical solutions.<br /><br />
+            I believe data storytelling is essential to bridge the gap between technical analysis and business understanding.<br /><br />
+            I continuously learn new tools and techniques to improve analytical efficiency and impact.<br /><br />
+            My goal is to become a data leader who drives business strategy through insights.
           </p>
 
           <div className="mt-6 text-gray-700">
@@ -154,7 +148,7 @@ export default function Page() {
                 target="_blank"
                 className="underline"
               >
-                LinkedIn
+                LinkedIn Profile
               </a>
             </p>
           </div>
@@ -174,6 +168,7 @@ export default function Page() {
           >
             Prev
           </button>
+
           <button
             onClick={() =>
               setIndex((i) => Math.min(i + 1, caseStudies.length - 1))
@@ -184,7 +179,7 @@ export default function Page() {
           </button>
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 relative h-[500px]">
+        <div className="max-w-5xl mx-auto px-6 relative h-[520px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
@@ -200,12 +195,8 @@ export default function Page() {
 
               <p className="text-gray-500">{caseStudies[index].role}</p>
 
-              <p className="mt-4 text-gray-700">
-                {caseStudies[index].summary}
-              </p>
-
-              <div className="mt-6 text-sm text-gray-600">
-                <p><b>Tools:</b> {caseStudies[index].tools}</p>
+              <div className="mt-4 text-gray-700 space-y-3">
+                <p><b>Tools Used:</b> {caseStudies[index].tools}</p>
                 <p><b>Problem:</b> {caseStudies[index].problem}</p>
                 <p><b>Approach:</b> {caseStudies[index].approach}</p>
                 <p><b>Insights:</b> {caseStudies[index].insights}</p>
@@ -216,12 +207,21 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CONTACT */}
+      {/* RESUME (AT END) */}
       <section className="text-center py-20 border-t">
-        <h2 className="text-2xl font-semibold">Get In Touch</h2>
+        <h2 className="text-2xl font-semibold">Resume</h2>
+
         <p className="text-gray-600 mt-3">
-          csahasrareddie09@gmail.com
+          Download my resume to explore my full experience and projects.
         </p>
+
+        <a
+          href="/resume.pdf"
+          download
+          className="inline-block mt-6 px-6 py-3 border border-black rounded-full hover:bg-black hover:text-white transition"
+        >
+          Download Resume
+        </a>
       </section>
     </main>
   );
