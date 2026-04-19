@@ -68,77 +68,82 @@ export default function Page() {
 
   const caseStudies = [
     {
-      title: "HR Attrition Analysis & Workforce Insights",
+      title: "HR Analytics: Attrition & Workforce Insights",
       role: "Data Analytics Intern (HR Domain)",
       summary:
-        "Analyzed HR datasets to identify attrition patterns and workforce trends using SQL, Python, and BI tools.",
+        "Analyzed HR datasets to understand attrition patterns, workforce distribution, and hiring trends using SQL and Python.",
       problem: [
-        "Limited visibility into attrition patterns",
-        "Disconnected HR datasets",
+        "Limited visibility into employee attrition",
+        "Scattered HR data across systems",
         "Manual reporting process"
       ],
       approach: [
-        "SQL for data extraction",
-        "Python (Pandas) for cleaning",
-        "Power BI / Tableau dashboards",
+        "SQL for data extraction and joins",
+        "Python (Pandas) for analysis",
+        "Power BI dashboards",
         "Exploratory Data Analysis"
       ],
       insights: [
-        "Attrition varies across tenure groups",
-        "Department-level differences exist",
-        "Hiring trends show seasonal variation"
+        "Higher attrition in early-tenure employees",
+        "Certain departments show higher turnover",
+        "Hiring trends vary seasonally"
       ],
       impact: [
         "Improved HR reporting clarity",
-        "Better decision support",
-        "Reduced manual effort"
+        "Faster decision-making",
+        "Reduced manual reporting effort"
       ]
     },
     {
-      title: "Business KPI Dashboard Reporting",
+      title: "KPI Dashboard for Workforce Analytics",
       role: "Business Intelligence Analyst Intern",
       summary:
-        "Built KPI dashboards for workforce planning and business reporting.",
+        "Built KPI dashboards to track workforce and business performance for leadership reporting.",
       problem: [
-        "Fragmented HR data",
+        "No centralized KPI tracking",
         "Manual Excel reporting",
-        "No KPI tracking system"
+        "Inconsistent performance tracking"
       ],
       approach: [
         "SQL KPI extraction",
-        "Excel data cleaning",
+        "Excel cleaning",
         "Power BI dashboards"
       ],
       insights: [
-        "Better visibility of KPIs",
-        "Improved reporting structure"
+        "Clear visibility into KPIs",
+        "Better tracking of hiring trends",
+        "Data inconsistencies identified"
       ],
       impact: [
-        "Faster reporting",
-        "Better decisions"
+        "Faster reporting cycles",
+        "Better decision-making",
+        "Standardized KPI tracking"
       ]
     },
     {
-      title: "HR Process Automation",
+      title: "HR Reporting Automation System",
       role: "Data Analyst Intern",
       summary:
-        "Automated HR reporting workflows using Python and Excel.",
+        "Automated HR reporting workflows using Python and Excel, improving speed and accuracy.",
       problem: [
         "Manual reporting delays",
-        "Excel inconsistencies"
+        "Excel inconsistencies",
+        "No standard process"
       ],
       approach: [
-        "Python automation",
-        "Excel processing",
-        "Data validation"
+        "Python (Pandas) automation",
+        "Excel workflow optimization",
+        "Data validation checks"
       ],
       insights: [
-        "Need for automation",
-        "Improved consistency"
+        "Automation reduces workload",
+        "Data quality improved",
+        "Reporting became consistent"
       ],
       impact: [
-        "Reduced time",
-        "Higher accuracy"
+        "Reduced reporting time",
+        "Improved accuracy",
+        "Streamlined workflow"
       ]
     }
   ];
@@ -171,7 +176,7 @@ export default function Page() {
           <h2 className="text-3xl font-semibold">About Me</h2>
 
           <p className="mt-4 text-gray-600">
-            Data analyst focused on HR & business insights, transforming raw data into decisions.
+            I turn raw data into business insights using analytics, dashboards, and automation.
           </p>
 
           <div className="mt-6">
@@ -179,11 +184,11 @@ export default function Page() {
             <p>
               🔗{" "}
               <a
-                className="underline"
                 href="https://www.linkedin.com/in/sahasra-reddy-075002235"
+                className="underline"
                 target="_blank"
               >
-                LinkedIn Profile
+                LinkedIn
               </a>
             </p>
           </div>
@@ -204,6 +209,7 @@ export default function Page() {
           >
             Prev
           </button>
+
           <button
             onClick={() =>
               setIndex((i) => Math.min(i + 1, caseStudies.length - 1))
@@ -219,9 +225,9 @@ export default function Page() {
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
+              exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.3 }}
               className="absolute w-full"
             >
