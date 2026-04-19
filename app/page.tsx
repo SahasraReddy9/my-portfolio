@@ -24,7 +24,7 @@ function AINetworkBackground() {
       vy: (Math.random() - 0.5) * 0.5
     }));
 
-    function animate() {
+    const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
       nodes.forEach((n) => {
@@ -41,7 +41,7 @@ function AINetworkBackground() {
       });
 
       requestAnimationFrame(animate);
-    }
+    };
 
     animate();
 
